@@ -1,38 +1,198 @@
-.App {
+/* App wide styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #2563eb;
+  --glass: rgba(255,255,255,0.7);
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: linear-gradient(180deg, var(--bg), #eef3fb);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #111827;
+}
+
+.app-header {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  color: white;
+  padding: 24px;
   text-align: center;
+  box-shadow: 0 4px 12px rgba(30, 60, 114, 0.2);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app-title {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container {
+  max-width: 1100px;
+  margin: 36px auto;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 28px;
+  padding: 24px;
+  box-sizing: border-box;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.form-section {
+  background: var(--card);
+  padding: 22px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(15,23,42,0.06);
+}
+
+.preview-section {
+  background: transparent; /* preview will be a card inside */
   display: flex;
   flex-direction: column;
+  gap: 12px;
+}
+
+.resume-form .form-title {
+  margin: 0 0 10px 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #0f172a;
+  text-align: left;
+}
+
+.resume-form .field-label {
+  display: block;
+  margin-top: 12px;
+  margin-bottom: 6px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #e6e9ef;
+  background: linear-gradient(180deg, #ffffff, var(--glass));
+  box-sizing: border-box;
+  font-size: 14px;
+  color: #0f172a;
+}
+
+.form-textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.resume-preview {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.06);
+  border: 1px solid rgba(15,23,42,0.04);
+}
+
+.preview-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.preview-name {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.preview-contact {
+  color: var(--muted);
+  font-size: 13px;
+  display: flex;
+  gap: 8px;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.dot { opacity: .5 }
+
+.preview-section-block { margin-top: 14px }
+
+.section-title { margin: 0 0 6px 0; color: #374151; font-size: 14px }
+.section-content { margin: 0; color: #4b5563; line-height: 1.5 }
+
+.download-btn {
+  background-color: var(--accent);
   color: white;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 6px 18px rgba(37,99,235,0.12);
+  align-self: flex-start;
 }
 
-.App-link {
-  color: #61dafb;
+.add-btn {
+  background-color: #10b981;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  margin-top: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 4px 12px rgba(16,185,129,0.12);
+  transition: background-color 0.2s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.add-btn:hover {
+  background-color: #059669;
+}
+
+.education-entry {
+  border-left: 3px solid var(--accent);
+  padding-left: 16px;
+  margin-top: 16px;
+  padding-top: 8px;
+}
+
+.education-item {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e6e9ef;
+}
+
+.edu-institute {
+  margin: 0 0 4px 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.edu-degree {
+  margin: 0 0 2px 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.edu-years {
+  margin: 4px 0 0 0;
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+@media (max-width: 880px) {
+  .container { grid-template-columns: 1fr; padding: 18px }
+  .preview-section { order: 2 }
 }
